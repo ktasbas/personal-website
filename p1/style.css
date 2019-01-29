@@ -1,0 +1,61 @@
+/* M. Kaan Tasbas | mktasbas@gmail.com */
+/* ./p1/style.css */
+
+header.page-header {
+	color: red;
+}
+
+h1 {
+	font-size: 40px;
+	text-align: center;
+}
+
+table {
+	table-layout: fixed;
+	width: 70%;
+	margin-left: 15%;
+	margin-right: 15%;
+	border-collapse: collapse;
+	border: 3px solid black;
+}
+
+caption {
+	font-size: 30px;
+	padding-bottom: 20px;
+}
+
+th.th-left {
+	text-align: right;
+}
+
+th.th-right {
+	text-align: left;
+}
+
+th.th-left, th.th-right {
+	font-size: 25px;
+}
+
+thead th:nth-child(1) {
+	width: 20%;
+}
+
+thead th:nth-child(2) {
+	width: 50%;
+}
+
+tbody td {
+	text-align: left;
+}
+
+tbody th {
+	text-align: right;
+}
+
+tbody td, tbody th {
+	font-size: 20px;
+}
+
+th, td {
+	padding: 10px;
+}
