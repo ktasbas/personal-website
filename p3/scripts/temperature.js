@@ -1,5 +1,5 @@
 // M. Kaan Tasbas | mktasbas@gmail.com
-// p3/index.html
+// p3/temperature.js
 
 /* Example code below sourced from:
 	https://github.com/dondi/javascript-book/tree/master/chapter02/temperature
