@@ -80,20 +80,40 @@
   <section id="projects" class="projects-section bg-light">
     <div class="container">
 
-      <!-- Featured Project Row -->
-      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
-        <div class="col-xl-8 col-lg-7">
-
+      <!-- Row 1: speed -->
+      <div class="row justify-content-center no-gutters">
+        <div class="col-lg-6">
+          <div class="text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-left">
+                <p>
+                  <label>MPH</label>
+                  <input id="inputMph" type="number" placeholder="mph" oninput="mphToKph(this.value)" onchange="mphToKph(this.value)">
+                  KPH: <span id="outputKph"></span>
+                </p>
+                <p>
+                  <label>KPH</label>
+                  <input id="inputKph" type="number" placeholder="kph" oninput="kphToMph(this.value)" onchange="kphToMph(this.value)">
+                  MPH: <span id="outputMph"></span>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-xl-4 col-lg-5">
-          <div class="featured-text text-center text-lg-left">
-            <h4>Speed</h4>
-            <p class="text-black-50 mb-0">Use the speed converter for miles per hour to kilometers per hour and vice versa.</p>
+        <div class="col-lg-6 order-lg-first">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-right">
+                <h4 class="text-white">Speed</h4>
+                <p class="mb-0 text-white-50">Convert between miles per hour and kilometers per hour</p>
+                <hr class="d-none d-lg-block mb-0 mr-0">
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Row 1: distance -->
+      <!-- Row 2: distance -->
       <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
         <div class="col-lg-6">
           <div class="text-center h-100 project">
@@ -126,7 +146,7 @@
         </div>
       </div>
 
-      <!-- Row 2: weight -->
+      <!-- Row 3: weight -->
       <div class="row justify-content-center no-gutters">
         <div class="col-lg-6">
           <div class="text-center h-100 project">

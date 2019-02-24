@@ -1,3 +1,11 @@
+function mphToKph(valNum) {
+	document.getElementById("outputKph").innerHTML = (valNum * 1.609).toFixed(3);
+}
+
+function kphToMph(valNum) {
+	document.getElementById("outputMph").innerHTML = (valNum / 1.609).toFixed(3);
+}
+
 function feetToMeters(valNum) {
 	document.getElementById("outputMeters").innerHTML = (valNum / 3.281).toFixed(3);
   }
