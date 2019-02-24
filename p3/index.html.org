@@ -1,0 +1,27 @@
+<!--M. Kaan Tasbas | mktasbas@gmail.com-->
+<!--p3/index.html-->
+
+<!-- Project Requirements:
+	- Design a simple, visually pleasant, JavaScript-based “app” that performs a useful function, namely, unit conversion.
+-->
+
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Converter</title>
+</head>
+
+<body>
+	<h1>Speed Conversion</h1>
+	<p>
+		<input type="text" id="speed" />
+		<input type="button" id="mph_to_kph" value="MPH to KM/H" />
+		<input type="button" id="kph_to_mph" value="KPH to KM/H" />
+	</p>
+	<p id="result"></p>
+	<script src="./scripts/converter.js"></script>
+</body>
+
+</html>
