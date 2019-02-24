@@ -1,0 +1,207 @@
+<!--M. Kaan Tasbas | mktasbas@gmail.com-->
+<!--p3/index.html-->
+
+<!-- Project Requirements:
+	- Design a simple, visually pleasant, JavaScript-based “app” that performs a useful function, namely, unit conversion.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Internet Computing Project 3: JavaScript Converter">
+  <meta name="author" content="M. Kaan Tasbas">
+
+  <title>Project 3</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/grayscale.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Project 3</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#projects">Conversions</a>
+		  </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+      <div class="mx-auto text-center">
+        <h1 class="mx-auto my-0 text-uppercase">JavaScript Converter</h1>
+        <h2 class="text-white-50 mx-auto mt-2 mb-5">A series of unit converters developed using JavaScript</h2>
+        <a href="#about" class="btn btn-primary js-scroll-trigger">Start Converting</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="about-section text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 class="text-white mb-4">Built with JavaScript</h2>
+          <p class="text-white-50">Below are 3 converters that convert between metric and United States customary measurement systems.</p>
+        </div>
+      </div>
+      <img src="img/js.png" class="img-fluid" alt="">
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section bg-light">
+    <div class="container">
+
+      <!-- Row 1: speed -->
+      <div class="row justify-content-center no-gutters">
+        <div class="col-lg-6">
+          <div class="text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-left">
+                <p>
+                  <label>MPH</label>
+                  <input id="inputMph" type="number" placeholder="mph" oninput="mphToKph(this.value)" onchange="mphToKph(this.value)">
+                  KPH: <span id="outputKph"></span>
+                </p>
+                <p>
+                  <label>KPH</label>
+                  <input id="inputKph" type="number" placeholder="kph" oninput="kphToMph(this.value)" onchange="kphToMph(this.value)">
+                  MPH: <span id="outputMph"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 order-lg-first">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-right">
+                <h4 class="text-white">Speed</h4>
+                <p class="mb-0 text-white-50">Convert between miles per hour and kilometers per hour</p>
+                <hr class="d-none d-lg-block mb-0 mr-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2: distance -->
+      <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+        <div class="col-lg-6">
+          <div class="text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-left">
+                <p>
+                  <label>Feet</label>
+                  <input id="inputFeet" type="number" placeholder="ft" oninput="feetToMeters(this.value)" onchange="feetToMeters(this.value)">
+                  Meters: <span id="outputMeters"></span>
+                </p>
+                <p>
+                  <label>Meters</label>
+                  <input id="inputMeters" type="number" placeholder="m" oninput="metersToFeet(this.value)" onchange="metersToFeet(this.value)">
+                  Feet: <span id="outputFeet"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-left">
+                <h4 class="text-white">Distance</h4>
+                <p class="mb-0 text-white-50">Convert between feet and meters</p>
+                <hr class="d-none d-lg-block mb-0 ml-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 3: weight -->
+      <div class="row justify-content-center no-gutters">
+        <div class="col-lg-6">
+          <div class="text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-left">
+                <p>
+                  <label>Pounds</label>
+                  <input id="inputPounds" type="number" placeholder="lb" oninput="poundsToKilograms(this.value)" onchange="poundsToKilograms(this.value)">
+                  Kilograms: <span id="outputKilograms"></span>
+                </p>
+                <p>
+                  <label>Kilograms</label>
+                  <input id="inputKilograms" type="number" placeholder="kg" oninput="kilogramsToPounds(this.value)" onchange="kilogramsToPounds(this.value)">
+                  Pounds: <span id="outputPounds"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 order-lg-first">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-right">
+                <h4 class="text-white">Weight</h4>
+                <p class="mb-0 text-white-50">Convert between pounds and kilograms</p>
+                <hr class="d-none d-lg-block mb-0 mr-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black small text-center text-white-50">
+    <div class="container">
+      Internet Computing Project 3, 2019
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/grayscale.min.js"></script>
+
+  <!-- Scripts to convert units-->
+  <script src="js/converter.js"></script>
+
+</body>
+
+</html>
