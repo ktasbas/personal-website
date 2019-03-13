@@ -7,14 +7,34 @@ function addTodoItem() {
 	var todoItem = $("#new_item").val();
 
 	// Add item to the unordered list
-	$("#todo_list").append("<li><input type='checkbox'" +
-		" name='item_done'" +
-		" class='item_done'" +
-		" value='" + todoItem + "' /> " +
-		todoItem +
-		" <button class='delete_item btn btn-sm btn-danger my-1 my-sm-0'>" +
-		" <span class='fas fa-trash mr-1'></span>" +
-		" Delete</button></li>");
+	$("#todo_list").append(
+		 "<li>" 
+		+	"<div class='row'>"
+		+		"<div class='col-md-auto'>"
+					// Add Complete checkbox
+		+			"<h5>"		
+		+			"<input type='checkbox' name='item_done' class='item_done'"
+						// Add To Do Item as "label" of checkbox
+		+				"value='" + todoItem + "' /> " + todoItem
+		+			"</h5>"
+		+		"</div>"
+		+		"<div class='col-md-auto'>"
+					// Add Edit button
+		+			"<button class='modify_item btn btn-sm btn-primary my-1 my-sm-0'>"
+		+				"<span class='fas fa-edit mr-1'></span>"
+		+				"Edit"
+		+			"</button>"
+		+		"</div>"
+		+		"<div class='col-md-auto'>"
+					// Add Delete button
+		+			"<button class='delete_item btn btn-sm btn-danger my-1 my-sm-0'>"
+		+				"<span class='fas fa-trash mr-1'></span>"
+		+				"Delete"
+		+			"</button>"
+		+		"</div>"
+		+	"</div>"
+		+"</li>"
+		+"<br>");
 
 	// Clear text entry in submission box
 	$("#new_item").val("");
