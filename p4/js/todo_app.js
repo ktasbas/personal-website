@@ -44,9 +44,11 @@ function addTodoItem() {
 function deleteTodoItem(e, item) {
 	// Stop browser from acting on the click itself
 	e.preventDefault();
+	// Select row to remove
+	var row = $(item).parent().parent().parent();
 	// Remove item from list
-	$(item).parent().fadeOut('slow', function () {
-		$(item).parent().remove();
+	row.fadeOut('slow', function () {
+		row.remove();
 	});
 }
 
