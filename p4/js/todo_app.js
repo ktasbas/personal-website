@@ -8,6 +8,13 @@ function updateLocalStorage() {
 	console.log(localStorage.getItem('list'));
 }
 
+// Load previous list from local storage
+function loadLocalStorage() {
+	var list = localStorage.getItem('list');
+	$('#todo_list').html(list);
+	console.log($('#todo_list').html());
+}
+
 // Add an item to the list
 function addTodoItem() {
 	// Get text entry for item
@@ -95,8 +102,8 @@ function deleteTodoItem(e, item) {
 	// Remove item from list
 	row.fadeOut('slow', function () {
 		row.remove();
+		updateLocalStorage();
 	});
-	updateLocalStorage();
 }
 
 // Mark item as complete
@@ -108,6 +115,9 @@ function completeTodoItem() {
 
 // Event handlers
 $(function () {
+
+	// Load list from local storage when page DOM is ready
+	$(document).ready(loadLocalStorage());
 
 	// Add item button event handler
 	$("#add_item").on('click', function (e) {
