@@ -12,8 +12,9 @@ function addTodoItem() {
 		" class='item_done'" +
 		" value='" + todoItem + "' /> " +
 		todoItem +
-		" <button class='delete_item'>" +
-		"Delete</button></li>");
+		" <button class='delete_item btn btn-sm btn-danger my-1 my-sm-0'>" +
+		" <span class='fas fa-trash mr-1'></span>" +
+		" Delete</button></li>");
 
 	// Clear text entry in submission box
 	$("#new_item").val("");
