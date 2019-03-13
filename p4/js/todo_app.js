@@ -32,7 +32,7 @@ function deleteTodoItem(e, item) {
 // Mark item as complete
 function completeTodoItem() {
 	// Strike through item
-	$(this).parent().css("text-decoration", "line-through");
+	$(this).parent().toggleClass("complete");
 }
 
 // Event handlers

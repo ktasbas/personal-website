@@ -41,6 +41,10 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
+.complete {
+  text-decoration: line-through;
+}
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
