@@ -6,6 +6,9 @@ function addTodoItem() {
 	// Get text entry for item
 	var todoItem = $("#new_item").val();
 
+	// Check for empty input
+	if(todoItem === "") return;
+
 	// Add item to the unordered list
 	$("#todo_list").append(
 		 "<li class='mb-3'>" 
