@@ -1,3 +1,6 @@
+// M. Kaan Tasbas | mktasbas@gmail.com
+// p4/todo_app.js
+
 // Add an item to the list
 function addTodoItem() {
 	// Get text entry for item
@@ -5,8 +8,8 @@ function addTodoItem() {
 
 	// Add item to the unordered list
 	$("#todo_list").append("<li><input type='checkbox'" +
-		" name='todo-item-done'" +
-		" class='todo-item-done'" +
+		" name='item_done'" +
+		" class='item_done'" +
 		" value='" + todoItem + "' /> " +
 		todoItem +
 		" <button class='delete_item'>" +
