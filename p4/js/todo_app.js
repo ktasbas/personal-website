@@ -1,6 +1,13 @@
 // M. Kaan Tasbas | mktasbas@gmail.com
 // p4/todo_app.js
 
+// Update local storage with current list
+function updateLocalStorage() {
+	var list = $('#todo_list');
+	localStorage.setItem('list', $(list).html());
+	console.log(localStorage.getItem('list'));
+}
+
 // Add an item to the list
 function addTodoItem() {
 	// Get text entry for item
@@ -41,6 +48,7 @@ function addTodoItem() {
 
 	// Clear text entry in submission box
 	$("#new_item").val("");
+	updateLocalStorage();
 }
 
 // Modify an item from the list
@@ -62,6 +70,7 @@ function modifyTodoItem(e, item) {
 		+ 	"</div>"
 		+ "</div>"
 		);
+	updateLocalStorage();
 }
 
 // Confirm modified value of to do item
@@ -74,6 +83,7 @@ function confirmTodoItem(e, item) {
 	$(todo_item).html(
 		"<input type='checkbox' id='item' name='item_done' class='item_done' value='" + new_input + "' /> " + new_input
 		);
+	updateLocalStorage();
 }
 
 // Delete an item from the list
@@ -86,12 +96,14 @@ function deleteTodoItem(e, item) {
 	row.fadeOut('slow', function () {
 		row.remove();
 	});
+	updateLocalStorage();
 }
 
 // Mark item as complete
 function completeTodoItem() {
 	// Strike through item
 	$(this).parent().toggleClass("complete");
+	updateLocalStorage();
 }
 
 // Event handlers
