@@ -13,7 +13,7 @@ function addTodoItem() {
 		+		"<div class='col-md-auto'>"
 					// Add Complete checkbox
 		+			"<h5>"		
-		+			"<input type='checkbox' name='item_done' class='item_done'"
+		+			"<input type='checkbox' id='item' name='item_done' class='item_done'"
 						// Add To Do Item as "label" of checkbox
 		+				"value='" + todoItem + "' /> " + todoItem
 		+			"</h5>"
@@ -38,6 +38,39 @@ function addTodoItem() {
 
 	// Clear text entry in submission box
 	$("#new_item").val("");
+}
+
+// Modify an item from the list
+function modifyTodoItem(e, item) {
+	// Stop browser from default click behavior
+	e.preventDefault();
+	// Select row of clicked edit button
+	var row = $(item).parent().parent().parent();
+	// Select todo text
+	var input_value = $(row).find("h5").text();
+	// Replace to do text with input to modify
+	$(row).find("h5").html(
+		  "<div class='row'>"
+		+ 	"<div class='col-sm-auto'>"
+		+ 		"<input type='text' id='modifying' class='form-control' value='" + input_value + "'>"
+		+ 	"</div>"
+		+ 	"<div class='col-sm-auto'>"
+		+ 		"<h6><button type='submit' id='confirm_item' class='confirm_item btn btn-sm btn-primary my-1 my-sm-0'>Confirm</button></h6>"
+		+ 	"</div>"
+		+ "</div>"
+		);
+}
+
+// Confirm modified value of to do item
+function confirmTodoItem(e, item) {
+	// Stop browser from default click behavior
+	e.preventDefault();
+	// Select row of clicked edit button
+	var todo_item = $(item).parent().parent().parent().parent();
+	var new_input = $(todo_item).find('#modifying').val();
+	$(todo_item).html(
+		"<input type='checkbox' id='item' name='item_done' class='item_done' value='" + new_input + "' /> " + new_input
+		);
 }
 
 // Delete an item from the list
@@ -68,6 +101,20 @@ $(function () {
 		// Add item to list
 		addTodoItem()
 	});
+
+	// Modify item button event handler
+	// #todo_list used as handler because #modify_item doesn't exist until an entry is made
+	$("#todo_list").on('click', '.modify_item', function(e) {
+		var item = this;
+		modifyTodoItem(e, item);
+	})
+
+	// Confirm item buton event handler
+	// #todo_list used as handler because #confirm_item is spawned by and replaces #modify_item
+	$("#todo_list").on('click', '.confirm_item', function(e) {
+		var item = this;
+		confirmTodoItem(e, item);
+	})
 
 	// Delete item button event handler
 	// #todo_list used as handler because #delete_item doesn't exist until an entry is made
