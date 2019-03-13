@@ -8,7 +8,7 @@ function addTodoItem() {
 
 	// Add item to the unordered list
 	$("#todo_list").append(
-		 "<li>" 
+		 "<li class='mb-3'>" 
 		+	"<div class='row'>"
 		+		"<div class='col-md-auto'>"
 					// Add Complete checkbox
@@ -34,7 +34,7 @@ function addTodoItem() {
 		+		"</div>"
 		+	"</div>"
 		+"</li>"
-		+"<br>");
+		);
 
 	// Clear text entry in submission box
 	$("#new_item").val("");
