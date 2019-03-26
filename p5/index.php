@@ -17,13 +17,30 @@
 </head>
 
 <body class="">	
+	<div class="bg-dark navbar-dark text-white">
+		<div class="container">
+			<nav class="navbar px-0 navbar-expand-lg navbar-dark">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+					aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<div class="navbar-nav">
+						<a href="index.php" class="pl-md-0 p-3 text-light">Currency Converter</a>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</div>
+
 	<div class="container" style="min-height:500px;">
 		<div class=''>
 		</div>
 		<div class="container">
+			<br/> <br/>
 			<h1>Currency Converter</h1>
-			<br />
-			
+			<br/>
+
 			<form method="post" id="currency-form" class="form-inline"> 		
 				<div class="form-group">
 				<label class="sr-only" for="inlineFormInputGroup">From</label>
@@ -53,7 +70,7 @@
 					<button type="submit" name="convert" id="convert" class="btn btn-primary">Convert</button>	
 				</div>			
 			</form>	
-
+			<br/> <br/>
 			<div class="form-group" id="converted_rate"></div>	
 			<div id="converted_amount"></div>		
 		</div>
