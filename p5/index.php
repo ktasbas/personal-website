@@ -3,8 +3,11 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!--
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	-->
+	<link rel="stylesheet" href="./css/p5.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
@@ -18,14 +21,13 @@
 		<div class=''>
 		</div>
 		<div class="container">
-			<h2>Currency Converter</h2>	
+			<h1>Currency Converter</h1>
 			<br />
-			<br />
-			<br />
-			<form method="post" id="currency-form"> 		
+			
+			<form method="post" id="currency-form" class="form-inline"> 		
 				<div class="form-group">
-				<label>From</label>
-					<select name="from_currency">
+				<label class="sr-only" for="inlineFormInputGroup">From</label>
+					<select class="custom-select" name="from_currency">
 						<option value="INR">Indian Rupee</option>
 						<option value="USD" selected="1">US Dollar</option>
 						<option value="AUD">Australian Dollar</option>
@@ -33,12 +35,13 @@
 						<option value="EGP">Egyptian Pound</option>
 						<option value="CNY">Chinese Yuan</option>
 					</select>	
-					&nbsp;
-					<label>Amount</label>	
-					<input type="text" placeholder="Currency" name="amount" id="amount" />			
-					&nbsp;
-					<label>To</label>
-					<select name="to_currency">
+					&nbsp;&nbsp;
+					<label class="sr-only" for="inlineFormInputGroup">Amount</label>
+					<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+						<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Currency" name="amount" id="amount" />
+					</div>
+					<label class="sr-only" for="inlineFormInputGroup">To</label>
+					<select class="custom-select" name="to_currency">
 						<option value="INR">Indian Rupee</option>
 						<option value="USD">US Dollar</option>
 						<option value="AUD">Australian Dollar</option>
@@ -47,7 +50,7 @@
 						<option value="CNY">Chinese Yuan</option>
 					</select>			
 					&nbsp;&nbsp;
-					<button type="submit" name="convert" id="convert" class="btn btn-default">Convert</button>	
+					<button type="submit" name="convert" id="convert" class="btn btn-primary">Convert</button>	
 				</div>			
 			</form>	
 
