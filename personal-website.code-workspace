@@ -2,7 +2,21 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"name": "SSH FS - mtasbas2015@lamp.cse.fau.edu",
+			"uri": "ssh://mtasbas2015@lamp.cse.fau.edu/"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"sshfs.configs": [
+			{
+				"host": "lamp.cse.fau.edu",
+				"name": "mtasbas2015@lamp.cse.fau.edu",
+				"privateKeyPath": "/home/kaan/.ssh/id_rsa",
+				"root": "/home/mtasbas2015/public_html",
+				"username": "mtasbas2015"
+			}
+		]
+	}
 }
