@@ -1,5 +1,29 @@
 <?php
 require_once './php/db_connect.php';
+
+if(isset($_POST['babyName']) && isset($_POST['babyGender']))
+{
+  // add to votes table
+  // if name already exists, increment count
+
+	$insertStmt = 'INSERT INTO votes (name, sex, count)' . PHP_EOL
+      . '  VALUES (\''.$_POST['babyName'].'\', \''.$_POST['babyGender'].'\', \'1\');';
+
+  if(!$db->query($insertStmt))
+  {
+    // duplicate name, increment count instead
+    $getStmt = 'SELECT * FROM votes where name="'.$_POST['babyName'].'" and sex="'.$_POST['babyGender'].'";';
+    $result = $db->query($getStmt);
+    $row = mysqli_fetch_array($result);
+
+    $updateStmt = 'UPDATE votes SET count=' .($row['count']+1). ' where name="' .$row['name']. '" and sex="' .$row['sex']. '";';
+    if(!$db->query($updateStmt))
+    {
+      echo 'Table update failed: (' . $db->errno . ') ' . $db->error . PHP_EOL;
+		  echo '<br>' . $updateStmt . '<br>';
+    }
+  }
+}
 ?>
 
 <head>
@@ -51,8 +75,8 @@ require_once './php/db_connect.php';
         </h4>
 
         <?php
-          $getMaleStmt = 'SELECT * FROM names where sex = \'m\' order by count desc limit 10;';
-          $getFemaleStmt = 'SELECT * FROM names where sex = \'f\' order by count desc limit 10;';
+          $getMaleStmt = 'SELECT * FROM votes where sex = \'m\' order by count desc limit 10;';
+          $getFemaleStmt = 'SELECT * FROM votes where sex = \'f\' order by count desc limit 10;';
           $maleResult = $db->query($getMaleStmt);
           $femaleResult = $db->query($getFemaleStmt);
         ?>
@@ -73,8 +97,10 @@ require_once './php/db_connect.php';
                 $femaleRow = mysqli_fetch_array($femaleResult);
                 echo '<tr>';
                 echo '  <th scope="row">' .($i + 1). '</th>';
-                echo '  <td>' .$maleRow['name']. '</td>';
-                echo '  <td>' .$femaleRow['name']. '</td>';
+                if($maleRow != NULL) echo '  <td>' .$maleRow['name']. '</td>';
+                else echo '  <td> </td>';
+                if($femaleRow!= NULL) echo '  <td>' .$femaleRow['name']. '</td>';
+                else echo '  <td> </td>';
                 echo '</tr>';
               }
             ?>
@@ -98,7 +124,6 @@ require_once './php/db_connect.php';
         <table class="table table-hover table-striped">
           <thead class="thead-dark"></thead>
             <tr>
-              <th>#</th>
               <th>Male</th>
               <th>Female</th>
             </tr>
@@ -111,7 +136,6 @@ require_once './php/db_connect.php';
                 $maleRow = mysqli_fetch_array($maleResult);
                 $femaleRow = mysqli_fetch_array($femaleResult);
                 echo '<tr>';
-                echo '  <th scope="row">' .($i + 1). '</th>';
                 echo '  <td>' .$maleRow['name']. '</td>';
                 echo '  <td>' .$femaleRow['name']. '</td>';
                 echo '</tr>';
@@ -135,11 +159,11 @@ require_once './php/db_connect.php';
 
           <div class="d-block my-3">
             <div class="custom-control custom-radio">
-              <input id="male" name="babyGender" value="male" type="radio" class="custom-control-input" checked required>
+              <input id="male" name="babyGender" value="m" type="radio" class="custom-control-input" checked required>
               <label class="custom-control-label" for="male">Male</label>
             </div>
             <div class="custom-control custom-radio">
-              <input id="female" name="babyGender" value="female" type="radio" class="custom-control-input" required>
+              <input id="female" name="babyGender" value="f" type="radio" class="custom-control-input" required>
               <label class="custom-control-label" for="female">Female</label>
             </div>
           </div>

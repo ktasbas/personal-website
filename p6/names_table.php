@@ -2,8 +2,21 @@
 require_once './php/db_connect.php';
 
 // Create table that will hold names
-// 	Name, Sex, Count
+// 	From file: Name, Sex, Count
 $createStmt = 'CREATE TABLE names (' . PHP_EOL
+            . '  name varchar(50) NOT NULL,' . PHP_EOL
+			. '  sex char(1),' . PHP_EOL
+			. '  count int,' . PHP_EOL
+            . '  PRIMARY KEY (name, sex)' . PHP_EOL
+			. ') ENGINE=MyISAM DEFAULT CHARSET=latin1;';
+
+if(!$db->query($createStmt)) {
+	echo 'Table creation failed: (' . $db->errno . ') ' . $db->error . PHP_EOL;
+	exit(); // Prevents the rest of the file from running
+}
+
+//  From form: Name, Sex
+$createStmt = 'CREATE TABLE votes (' . PHP_EOL
             . '  name varchar(50) NOT NULL,' . PHP_EOL
 			. '  sex char(1),' . PHP_EOL
 			. '  count int,' . PHP_EOL
