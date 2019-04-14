@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+require_once './php/db_connect.php';
+?>
 
 <head>
   <!-- Required meta tags -->
@@ -29,7 +30,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a href="index.html" class="p-3 text-decoration-none text-light">Popular Baby Names</a>
+            <a href="index.php" class="p-3 text-decoration-none text-light">Popular Baby Names</a>
           </div>
         </div>
       </nav>
@@ -44,11 +45,15 @@
     <div class="row py-4">
       <div class="col-md-4 order-md-2 mb-4">
         <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-muted">Current Standings</span>
+          <span class="text-muted">Current Rankings</span>
         </h4>
+
         <!-- LIST OF TOP 10 MALE/FEMALE NAMES -->
         <?php
-        
+          $getMaleStmt = 'SELECT * FROM names where sex = \'m\' order by count desc limit 10;';
+          $getFemaleStmt = 'SELECT * FROM names where sex = \'f\' order by count desc limit 10;';
+          $maleResult = $db->query($getMaleStmt);
+          $femaleResult = $db->query($getFemaleStmt);
         ?>
         <table class="table table-hover table-striped">
           <thead class="thead-dark"></thead>
@@ -59,11 +64,19 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Noah</td>
-              <td>Emma</td>
-            </tr>
+            <?php
+              // List top 10 names in table body
+              for ($i = 0; $i < 10; $i++)
+              {
+                $maleRow = mysqli_fetch_array($maleResult);
+                $femaleRow = mysqli_fetch_array($femaleResult);
+                echo '<tr>';
+                echo '  <th scope="row">' .($i + 1). '</th>';
+                echo '  <td>' .$maleRow['name']. '</td>';
+                echo '  <td>' .$femaleRow['name']. '</td>';
+                echo '</tr>';
+              }
+            ?>
           </tbody>
         </table>
         <ul class="list-group mb-3">
